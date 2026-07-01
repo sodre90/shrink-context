@@ -5,11 +5,19 @@
 #                    run the shrink-context skill instead of a blind summarization.
 #                    A second consecutive auto-compact (grace already used) is let through.
 # matcher "manual":  clears the marker, recharging the grace for next time.
-set -euo pipefail
+#
+# No `set -e`: malformed input must fail safe (let compaction proceed) by
+# falling through the empty-session_id check below, not by aborting mid-script.
+set -uo pipefail
 
 mode="${1:-}"
 input=$(cat)
-session_id=$(echo "$input" | jq -r '.session_id // "unknown"')
+session_id=$(echo "$input" | jq -r '.session_id // empty' 2>/dev/null)
+
+if [ -z "$session_id" ]; then
+  exit 0
+fi
+
 marker="${TMPDIR:-/tmp}/claude-shrink-context-${session_id}.marker"
 
 if [ "$mode" = "manual" ]; then
