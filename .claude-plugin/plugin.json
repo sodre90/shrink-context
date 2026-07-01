@@ -1,6 +1,6 @@
 {
   "name": "shrink-context",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Interactively pick what to keep before compacting Claude Code's context, with an optional one-shot intercept of auto-compaction.",
   "author": {
     "name": "Peter Erdos",
