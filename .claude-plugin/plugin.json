@@ -1,0 +1,12 @@
+{
+  "name": "shrink-context",
+  "version": "1.0.0",
+  "description": "Interactively pick what to keep before compacting Claude Code's context, with an optional one-shot intercept of auto-compaction.",
+  "author": {
+    "name": "Peter Erdos",
+    "email": "erdos.peter.bme@gmail.com"
+  },
+  "repository": "https://github.com/sodre90/shrink-context",
+  "license": "MIT",
+  "keywords": ["context", "compact", "compaction", "productivity"]
+}

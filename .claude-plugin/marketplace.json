@@ -1,0 +1,16 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "shrink-context",
+  "description": "Interactively pick what to keep before compacting Claude Code's context.",
+  "owner": {
+    "name": "Peter Erdos",
+    "email": "erdos.peter.bme@gmail.com"
+  },
+  "plugins": [
+    {
+      "name": "shrink-context",
+      "source": "./",
+      "description": "Interactively pick what to keep before compacting Claude Code's context, with an optional one-shot intercept of auto-compaction."
+    }
+  ]
+}

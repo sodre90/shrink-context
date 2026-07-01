@@ -1,0 +1,27 @@
+{
+  "description": "One-shot intercept of auto-compaction so the shrink-context skill can run before a blind summarization.",
+  "hooks": {
+    "PreCompact": [
+      {
+        "matcher": "auto",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/hooks/precompact-shrink-context.sh auto",
+            "timeout": 10
+          }
+        ]
+      },
+      {
+        "matcher": "manual",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/hooks/precompact-shrink-context.sh manual",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}
